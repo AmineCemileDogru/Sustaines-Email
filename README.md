@@ -45,7 +45,7 @@ Uygulamayı başlatın:
 
 Bash
 npm run dev
-Tarayıcıda http://localhost:3000 adresine gidin.
+Tarayıcıda http://localhost:3001 adresine gidin.
 
 🛠️ Kullanılan Teknolojiler
 Frontend: Next.js 14, React, Tailwind CSS, Lucide Icons.
