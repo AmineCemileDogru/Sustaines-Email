@@ -1,0 +1,9 @@
+namespace SustainES_Backend.Models
+{
+    public class Role
+    {
+        public int Id { get; set; }
+        public string RoleName { get; set; } = string.Empty;
+        public virtual ICollection<User> Users { get; set; } = new List<User>();
+    }
+}
