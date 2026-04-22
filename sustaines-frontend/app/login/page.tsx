@@ -29,7 +29,8 @@ export default function LoginPage() {
           id: response.data.id,
           fullName: response.data.fullName,
           email: response.data.email,
-          role: response.data.role
+          role: response.data.role,
+          token: response.data.token // JWT token eklendi
         });
         router.push("/dashboard");
       }

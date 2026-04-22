@@ -3,6 +3,7 @@ export type AuthUser = {
   fullName: string;
   email: string;
   role: string;
+  token?: string; // JWT token eklendi
 };
 
 const storageKey = "sustainesUser";
@@ -31,10 +32,18 @@ export function clearStoredUser() {
 export function getAuthHeaders() {
   const current = getStoredUser();
   if (!current) return {};
-  return {
+
+  const headers: any = {
     "X-User-Role": current.role || "",
     "X-User-Id": current.id?.toString() || "",
   };
+
+  // JWT token varsa Authorization header'ı ekle
+  if (current.token) {
+    headers["Authorization"] = `Bearer ${current.token}`;
+  }
+
+  return headers;
 }
 
 export function isAdmin(): boolean {
