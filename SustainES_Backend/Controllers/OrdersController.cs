@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using SustainES_Backend.Data;   // AppDbContext için
 using SustainES_Backend.Models; // Order ve Product modelleri için
@@ -9,6 +10,7 @@ namespace SustainES_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class OrdersController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -65,11 +67,9 @@ namespace SustainES_Backend.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PutOrder(int id, Order order)
         {
-            if (!IsAdmin())
-                return StatusCode(403, "Sadece yönetici sipariş düzenleyebilir.");
-
             if (id != order.Id) return BadRequest();
 
             var existingOrder = await _context.Orders.FindAsync(id);
@@ -94,11 +94,9 @@ namespace SustainES_Backend.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
-            if (!IsAdmin())
-                return StatusCode(403, "Sadece yönetici sipariş silebilir.");
-
             var order = await _context.Orders.FindAsync(id);
             if (order == null) return NotFound();
             _context.Orders.Remove(order);

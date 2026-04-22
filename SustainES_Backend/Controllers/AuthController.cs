@@ -13,12 +13,14 @@ namespace SustainES_Backend.Controllers
         private readonly AppDbContext _context;
         private readonly IEmailService _emailService;
         private readonly IPasswordHasher _passwordHasher;
+        private readonly IJwtTokenService _jwtTokenService;
 
-        public AuthController(AppDbContext context, IEmailService emailService, IPasswordHasher passwordHasher)
+        public AuthController(AppDbContext context, IEmailService emailService, IPasswordHasher passwordHasher, IJwtTokenService jwtTokenService)
         {
             _context = context;
             _emailService = emailService;
             _passwordHasher = passwordHasher;
+            _jwtTokenService = jwtTokenService;
         }
 
         private static string NormalizeEmail(string email)
@@ -201,6 +203,9 @@ namespace SustainES_Backend.Controllers
             });
             await _context.SaveChangesAsync();
 
+            // JWT Token Oluştur
+            var jwtToken = _jwtTokenService.GenerateToken(user);
+
             return Ok(new
             {
                 message = "Giriş başarılı",
@@ -208,7 +213,9 @@ namespace SustainES_Backend.Controllers
                 fullName = user.FullName,
                 email = user.Email,
                 role = user.Role?.RoleName ?? "User",
-                isEmailVerified = user.IsEmailVerified
+                isEmailVerified = user.IsEmailVerified,
+                token = jwtToken,
+                tokenType = "Bearer"
             });
         }
 

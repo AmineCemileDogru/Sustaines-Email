@@ -1,0 +1,62 @@
+[33mcommit ba50e1482d45074269082e2fe2517a21012c35df[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Deyto7 <115898497+Deyto7@users.noreply.github.com>
+Date:   Tue Apr 21 14:48:13 2026 +0300
+
+    Update README.md with comprehensive project documentation
+    
+    - Add detailed project overview and architecture
+    - Document security features (BCrypt password hashing, JWT auth)
+    - Include complete installation and setup instructions
+    - Add API endpoints documentation
+    - Document database schema and structure
+    - Include frontend components overview
+    - Add configuration examples and deployment guide
+    - Professional formatting for internship portfolio
+
+[33mcommit 8796e556846ed3ba4bd3136177f7d628061d7036[m
+Author: Deyto7 <115898497+Deyto7@users.noreply.github.com>
+Date:   Tue Apr 21 14:45:32 2026 +0300
+
+    Add password security with BCrypt hashing
+    
+    - Add IPasswordHasher interface and PasswordHasher implementation using BCrypt.Net
+    - Update AuthController to hash passwords during registration and password reset
+    - Update Program.cs to hash admin password during seeding
+    - Add .gitignore file to exclude build files and sensitive data
+    - Remove temporary hash-existing-passwords endpoint
+
+[33mcommit 0736ff716ffba3172d598f063bec5805b0bf4ac3[m
+Author: Deyto7 <115898497+Deyto7@users.noreply.github.com>
+Date:   Mon Apr 20 14:47:29 2026 +0300
+
+    Documentation: README file added
+
+[33mcommit c0644d1eeea2350aa6628eb4d61412ac6f883e49[m
+Author: Deyto7 <115898497+Deyto7@users.noreply.github.com>
+Date:   Mon Apr 20 14:16:39 2026 +0300
+
+    Documentation: README file added
+
+[33mcommit 4c6f178e4b9dce80b9ee08a601461134bc7e76b9[m
+Author: Deyto7 <115898497+Deyto7@users.noreply.github.com>
+Date:   Mon Apr 20 14:08:22 2026 +0300
+
+    Gereksiz logo.png dosyası silindi
+
+[33mcommit 44e514f5cb55d2f382870cddfc345915a35ee21c[m
+Author: Deyto7 <115898497+Deyto7@users.noreply.github.com>
+Date:   Mon Apr 20 14:00:00 2026 +0300
+
+    Full-Stack Setup: Frontend, Backend and Database script added
+
+[33mcommit 5106f30a7d5c704ebfb7c9509b3cb81411006066[m
+Author: Amine <115898497+AmineCemileDogru@users.noreply.github.com>
+Date:   Thu Apr 16 12:02:53 2026 +0300
+
+    Add files via upload
+
+[33mcommit 0125c1bc0c72ef18747840c216a9cde7494a1e38[m
+Author: Amine <115898497+AmineCemileDogru@users.noreply.github.com>
+Date:   Thu Apr 16 12:00:47 2026 +0300
+
+    Create logo.png

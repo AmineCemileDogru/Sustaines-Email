@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using SustainES_Backend.Data;
 using SustainES_Backend.Models;
@@ -9,6 +10,7 @@ namespace SustainES_Backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CategoriesController : ControllerBase
     {
         private readonly AppDbContext _context;
@@ -76,10 +78,9 @@ namespace SustainES_Backend.Controllers
 
         // POST: api/Categories
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Category>> PostCategory([FromBody] Category category)
         {
-            if (!IsAdmin()) return StatusCode(403, "Sadece yönetici kategori ekleyebilir.");
-
             if (string.IsNullOrEmpty(category.CategoryName)) 
                 return BadRequest("Kategori adı boş olamaz.");
 
@@ -91,10 +92,9 @@ namespace SustainES_Backend.Controllers
 
         // PUT: api/Categories/5
         [HttpPut("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PutCategory(int id, [FromBody] Category category)
         {
-            if (!IsAdmin()) return StatusCode(403, "Sadece yönetici kategori düzenleyebilir.");
-            
             var existingCategory = await _context.Categories.FindAsync(id);
             if (existingCategory == null) return NotFound("Kategori bulunamadı.");
 
@@ -118,10 +118,9 @@ namespace SustainES_Backend.Controllers
 
         // DELETE: api/Categories/5
         [HttpDelete("{id}")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
-            if (!IsAdmin()) return StatusCode(403, "Sadece yönetici kategori silebilir.");
-
             var category = await _context.Categories.FindAsync(id);
             if (category == null) return NotFound("Silinecek kategori bulunamadı.");
 

@@ -303,3 +303,6 @@ C:\Users\Amine\Desktop\SustainES-Emails\SustainES_Backend\bin\Release\runtimes\w
 C:\Users\Amine\Desktop\SustainES-Emails\SustainES_Backend\bin\Release\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Amine\Desktop\SustainES-Emails\SustainES_Backend\bin\Release\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Amine\Desktop\SustainES-Emails\SustainES_Backend\bin\Release\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\Amine\Desktop\SustainES-Emails\Sustaines_Backend\bin\Debug\net10.0\BCrypt.Net-Next.dll
+C:\Users\Amine\Desktop\SustainES-Emails\Sustaines_Backend\obj\Debug\net10.0\SustainES_Backend.sourcelink.json
+C:\Users\Amine\Desktop\SustainES-Emails\SustainES_Backend\bin\Debug\net10.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
