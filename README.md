@@ -385,8 +385,9 @@ ENTRYPOINT ["dotnet", "SustainES_Backend.dll"]
 ## 📞 İletişim
 
 **Geliştirici**: Amine Cemile Doğru
-**E-posta**: amine@example.com
+**E-posta**: aminecemiledogru@gmail.com
 **GitHub**: https://github.com/AmineCemileDogru
+
 
 ## 📜 Lisans
 
