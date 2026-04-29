@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SustainES_Backend.Data;
 using SustainES_Backend.Models;
+using SustainES_Backend.Services; // PasswordHasher için eklendi
 
 namespace SustainES_Backend.Controllers
 {
@@ -10,10 +11,13 @@ namespace SustainES_Backend.Controllers
     public class UsersController : ControllerBase
     {
         private readonly AppDbContext _context;
+        private readonly IPasswordHasher _passwordHasher; // Hasher servisi eklendi
 
-        public UsersController(AppDbContext context)
+        // Constructor'a IPasswordHasher enjekte edildi
+        public UsersController(AppDbContext context, IPasswordHasher passwordHasher)
         {
             _context = context;
+            _passwordHasher = passwordHasher;
         }
 
         private string? GetCurrentRole()
@@ -77,7 +81,8 @@ namespace SustainES_Backend.Controllers
             {
                 FullName = request.FullName,
                 Email = request.Email,
-                Password = request.Password,
+                // DÜZELTME: Şifre kaydedilirken hash'leniyor
+                Password = _passwordHasher.HashPassword(request.Password), 
                 RoleId = role.Id,
                 IsEmailVerified = true,
                 VerificationToken = string.Empty,
@@ -102,8 +107,10 @@ namespace SustainES_Backend.Controllers
 
             user.FullName = request.FullName ?? user.FullName;
             user.Email = request.Email ?? user.Email;
+            
+            // DÜZELTME: Eğer şifre güncelleniyorsa, yeni şifre hash'lenerek kaydediliyor
             if (!string.IsNullOrWhiteSpace(request.Password))
-                user.Password = request.Password;
+                user.Password = _passwordHasher.HashPassword(request.Password);
 
             if (IsAdmin() && request.RoleName != null)
             {
