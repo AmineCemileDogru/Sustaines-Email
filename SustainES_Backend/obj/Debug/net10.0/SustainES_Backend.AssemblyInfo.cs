@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SustainES_Backend")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+26079902dbae6d059723bde5cabcbfd56eed3a2e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c65f8b767de24afc54ec4245b15e2106d00a1b7b")]
 [assembly: System.Reflection.AssemblyProductAttribute("SustainES_Backend")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SustainES_Backend")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

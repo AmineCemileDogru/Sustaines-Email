@@ -68,7 +68,7 @@
     {
       "code": "NU1902",
       "level": "Warning",
-      "message": "Package 'MailKit' 4.15.1 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-9j88-vvj5-vhgr",
+      "message": "'MailKit' 4.15.1 paketinde önem derecesi orta olan bilinen bir https://github.com/advisories/GHSA-9j88-vvj5-vhgr güvenlik açığı var",
       "projectPath": "C:\\Users\\Amine\\Desktop\\SustainES-Emails\\SustainES_Backend\\SustainES_Backend.csproj",
       "warningLevel": 1,
       "filePath": "C:\\Users\\Amine\\Desktop\\SustainES-Emails\\SustainES_Backend\\SustainES_Backend.csproj",

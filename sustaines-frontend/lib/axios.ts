@@ -2,7 +2,7 @@ import axios from "axios";
 import { getAuthHeaders, getStoredUser } from "@/lib/auth";
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:5119/api",
+  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:5202/api",
 });
 
 api.interceptors.request.use((config) => {
